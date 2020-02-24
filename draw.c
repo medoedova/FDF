@@ -6,11 +6,16 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:18:47 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 21:21:57 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/24 21:31:49 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	isometric(float *x, float *y, int z)
+{
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - z;
 
 void	draw_line(float x, float y, float x1, float y1, t_data data)
 {
@@ -29,6 +34,8 @@ void	draw_line(float x, float y, float x1, float y1, t_data data)
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	x_step = x1 - x;
 	y_step = y1 - y;
+	isometric(&x, &y, z);
+	isometric(&x1, &y1, z);
 	max = MAX(ABS(x_step), ABS(y_step));
 	x_step /= max;
 	y_step /= max;
