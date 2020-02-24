@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:21:25 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 20:30:49 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/24 20:47:15 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ typedef struct		s_data
 }					t_data;
 
 void				read_file(char *file_name, t_data data);
-
+int					wrdcounter(char *str, char c);
 int					get_width(char *file_name);
 int					get_height(char *file_name);
+void				fill_matrix(int *z_line, char *line);
+void				draw_line(float x, float y, float x1, float y1, t_data data);
 
 #endif
