@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:21:25 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 20:47:15 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/24 20:58:50 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct		s_data
 	int				width;
 	int				height;
 	int				**z_matrix;
+	int				zoom;
+	int				color;
 	void			*mlx_ptr;
 	void			*win_ptr;
 }					t_data;
