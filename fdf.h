@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:21:25 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 16:57:35 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/24 20:30:49 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,21 @@
 # include <fcntl.h>
 # include "libft.h"
 
-typedef struct		s_dot
+# define MAX(a, b) (a > b) ? a : b
+# define ABS(a) ((a < 0) ? -a : a)
+
+typedef struct		s_data
 {
-	int				x;
-	int				y;
-	int				z_value;
+	int				width;
+	int				height;
+	int				**z_matrix;
 	void			*mlx_ptr;
 	void			*win_ptr;
-	struct s_dot	*next;
-}					t_dot;
+}					t_data;
+
+void				read_file(char *file_name, t_data data);
+
+int					get_width(char *file_name);
+int					get_height(char *file_name);
 
 #endif
