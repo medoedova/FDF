@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:56:19 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 21:01:39 by mjada            ###   ########.fr       */
+/*   Updated: 2020/02/24 21:20:44 by mjada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ int	deal_key(int key, fdf *data)
 int		main(int argc, char **argv)
 {
 	fdf *data;
-
+	
+	if (argc != 2)
+	{
+		ft_putstr("usage: ./fdf <file_name>");
+	}
 	data = (fdf*)malloc(sizeof(fdf));
 	read_file(argv[1], data);
 	data->mlx_ptr = mlx_init();
