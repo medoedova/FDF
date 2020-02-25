@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:56:19 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/25 15:20:13 by mjada            ###   ########.fr       */
+/*   Updated: 2020/02/25 15:57:40 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int		main(int argc, char **argv)
 	
 	if (argc != 2)
 		ft_putstr("usage: ./fdf <file_name>");
-	data = (t_data*)malloc(sizeof(t_data));
+	if (!(data = (t_data*)malloc(sizeof(t_data))))
+		return (0);
 	read_file(argv[1], data);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
