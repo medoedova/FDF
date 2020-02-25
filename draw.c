@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:18:47 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 21:42:44 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/25 13:54:26 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	isometric(float *x, float *y, int z)
 {
 	*x = (*x - *y) * cos(0.8);
 	*y = (*x + *y) * sin(0.8) - z;
+}
 
-void	draw_line(float x, float y, float x1, float y1, t_data data)
+void	draw_line(float x, float y, float x1, float y1, t_data *data)
 {
 	float	x_step;
 	float	y_step;
@@ -25,13 +26,13 @@ void	draw_line(float x, float y, float x1, float y1, t_data data)
 	int		z;
 	int		z1;
 
-	z = data->z_matriz[(int)y][(int)x];
+	z = data->z_matrix[(int)y][(int)x];
 	z1 = data->z_matrix[(int)y1][(int)x1];
-	x *= 200; //+=data->zoom
-	y *= 200;
-	x1 *= 200;
-	y1 *= 200;
-	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	x *= data->zoom;
+	y *= data->zoom;
+	x1 *= data->zoom;
+	y1 *= data->zoom;
+//	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	x_step = x1 - x;
 	y_step = y1 - y;
 	isometric(&x, &y, z);

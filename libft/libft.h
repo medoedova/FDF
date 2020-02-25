@@ -6,19 +6,21 @@
 /*   By: mjada <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 18:40:38 by mjada             #+#    #+#             */
-/*   Updated: 2019/09/27 21:36:03 by mjada            ###   ########.fr       */
+/*   Updated: 2020/02/25 13:02:44 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF_SIZE 20
+# define MAX_FD 255
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-# include <fcnlt.h>
+# include <fcntl.h>
 
 
 void	*ft_memset(void *b, int c, size_t len);

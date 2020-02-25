@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:18:45 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 20:32:38 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/25 13:10:20 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ int		get_width(char *file_name)
 
 void	fill_matrix(int *z_line, char *line)
 {
-	char **nums;
+	char	**nums;
+	int		i;
+
 	i = 0;
 	while (nums[i])
 	{
@@ -75,7 +77,7 @@ void	fill_matrix(int *z_line, char *line)
 	free(nums);
 }
 
-void	read_file(char *file_name, t_dot *data)
+void	read_file(char *file_name, t_data *data)
 {
 	int		fd;
 	char	*line;
@@ -91,7 +93,7 @@ void	read_file(char *file_name, t_dot *data)
 	i = 0;
 	while (get_next_line(fd, &line))
 	{
-		fill_matrix(data, line);
+		fill_matrix(data->z_matrix[i], line);
 		free(line);
 	}
 }

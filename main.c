@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:56:19 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/24 22:04:18 by mjada            ###   ########.fr       */
+/*   Updated: 2020/02/25 13:52:08 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@
 
 int		main(int argc, char **argv)
 {
-	t_data *new;
+	t_data *data;
 	
 	if (argc != 2)
-	{
 		ft_putstr("usage: ./fdf <file_name>");
-	}
-	new = (t_data*)malloc(sizeof(t_data));
-	read_file(argv[1], new);
-	new->mlx_ptr = mlx_init();
-	new->win_ptr = mlx_new_window(new->mlx_ptr, 1000, 1000, "FDF");
-	new->zoom = 20;
-	draw(new);
+	data = (t_data*)malloc(sizeof(t_data));
+	read_file(argv[1], data);
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
+	data->zoom = 200;
+	draw(data);
 //	mlx_key_hook(data->win_ptr, deal_key, data);
-	mlx_loop(new->mlx_ptr);
+	mlx_loop(data->mlx_ptr);
 }
