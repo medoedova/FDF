@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:18:45 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/25 15:22:14 by mjada            ###   ########.fr       */
+/*   Updated: 2020/02/25 15:43:07 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,14 @@ void	read_file(char *file_name, t_data *data)
 
 	data->height = get_height(file_name);
 	data->width = get_width(file_name);
-	data->z_matrix = (int**)malloc(sizeof(int*) * (data->height + 1));
+	if (!(data->z_matrix = (int**)malloc(sizeof(int*) * (data->height + 1))))
+		exit(12);
 	i = 0;
 	while (i <= data->height)
-		data->z_matrix[i++] = (int*)malloc(sizeof(int) * (data->width + 1));
+	{
+		if (!(data->z_matrix[i++] = (int*)malloc(sizeof(int) * (data->width + 1))))
+			exit(12);
+	}
 	fd = open(file_name, O_RDONLY);
 	i = 0;
 	while (get_next_line(fd, &line))
