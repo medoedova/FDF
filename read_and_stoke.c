@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:18:45 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/25 17:36:09 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/25 18:02:30 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ void	read_file(char *file_name, t_data *data)
 		i++;
 	}
 	data->z_matrix[i] = NULL;
+	close(fd);
 }
