@@ -6,7 +6,7 @@
 /*   By: vrhaena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 15:18:45 by vrhaena           #+#    #+#             */
-/*   Updated: 2020/02/25 18:04:57 by vrhaena          ###   ########.fr       */
+/*   Updated: 2020/02/25 18:06:17 by vrhaena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		get_height(char *file_name)
 	int		height;
 
 	height = 0;
-	if ((fd = open(file_name, O_RDWD)) < 0)
+	if ((fd = open(file_name, O_RDWR)) < 0)
 	{
 		ft_putstr("it's not a file");
 		return (0);
